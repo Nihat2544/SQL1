@@ -59,7 +59,16 @@ set urun_id = urun_id+ted_vergino ;
 -- Bu soruda urunler ve tedarikciler tablosunu yenidin olusturduk
 UPDATE urunler
 set urun_isim= (select firma_ismi from tedarikciler where irtibat_ismi= 'Adam Eve')
-where musteri_isim = 'Ali Bak'; 
+where musteri_isim = 'Ali Bak';
+
+--Urunler tablosunda laptop satin alan musterilerin ismini,firma_ismi Apple'in irtibat ismi ile degistirin
+UPDATE urunler
+set musteri_isim=(select irtibat_ismi from tedarikciler where firma_ismi= 'Apple')
+where urun_isim= 'laptop'
+
+select * from urunler
+
+
 
 
 
